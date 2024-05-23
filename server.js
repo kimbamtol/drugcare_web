@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config(); // 환경 변수를 로드
+require('dotenv').config(); // 환경 변수를 로드합니다.
 
 // MongoDB 설정
 mongoose.connect(process.env.MONGODB_URI, {
