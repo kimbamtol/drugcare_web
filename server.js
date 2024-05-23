@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config(); // 환경 변수를 로드합니다.
-const notificationRoutes = require('./routes/notification'); // 추가된 라우트
 
 // MongoDB 설정
 mongoose.connect(process.env.MONGODB_URI, {
@@ -38,7 +37,6 @@ const userRoutes = require('./routes/user');
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/user', userRoutes);
-app.use('/api/notification', notificationRoutes); // 추가된 라우트
 
 // 서버 포트 설정
 const PORT = process.env.PORT || 8080;
