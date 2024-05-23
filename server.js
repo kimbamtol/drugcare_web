@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config(); // 환경 변수를 로드합니다.
+require('dotenv').config(); // 환경 변수를 로드
 
 // MongoDB 설정
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true // DeprecationWarning 해결
 });
 
 const db = mongoose.connection;
