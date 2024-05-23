@@ -22,6 +22,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// 기본 경로 라우트 설정
+app.get('/', (req, res) => {
+    res.send('Hello, welcome to the DrugCare server!');
+});
+
 // 라우트 설정
 const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
