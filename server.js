@@ -20,7 +20,10 @@ db.once('open', () => {
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://drugcare-client.vercel.app/', // Vercel 도메인 설정,계속 바뀔수도 있으니 바뀔 때 마다 수정..
+    credentials: true
+}));
 
 // 기본 경로 라우트 설정
 app.get('/', (req, res) => {
