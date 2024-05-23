@@ -4,25 +4,27 @@ const jwt = require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
     const { email, password, authCode, Admin_fcmToken } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newAdmin = new Admin({
-        email,
-        password: hashedPassword,
-        AuthCode: authCode,
-        Admin_fcmToken: Admin_fcmToken || "",  // 제공된 Admin_fcmToken을 사용하거나 기본값으로 빈 문자열
-        RegisteredUsers: []
-    });
+    console.log('Received signup request:', req.body); // 요청 본문 출력
 
     try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const newAdmin = new Admin({
+            email,
+            password: hashedPassword,
+            AuthCode: authCode,
+            Admin_fcmToken: Admin_fcmToken || "",  // 제공된 Admin_fcmToken을 사용하거나 기본값으로 빈 문자열
+            RegisteredUsers: []
+        });
+
         console.log('Before saving Admin:', newAdmin);
         await newAdmin.save();
         console.log('After saving Admin:', newAdmin);
         res.json({ message: 'Admin registered successfully' });
         console.log("계정 생성 성공");
     } catch (err) {
+        console.error("계정 생성 실패", err);
         res.status(400).json({ message: 'Error registering admin', error: err });
-        console.log("계정 생성 실패", err);
     }
 };
 
