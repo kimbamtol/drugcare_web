@@ -2,10 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config();
+require('dotenv').config(); // 환경 변수를 로드합니다.
 
 // MongoDB 설정
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/DrugCare', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -21,7 +21,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://drugcare-client.vercel.app/', // Vercel 도메인 설정,계속 바뀔수도 있으니 바뀔 때 마다 수정..
+    origin: process.env.CORS_ORIGIN || '*', // 필요에 따라 Vercel 도메인 설정
     credentials: true
 }));
 
