@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config(); // 환경 변수를 로드합니다.
+require('dotenv').config(); // 환경 변수
 
 // Firebase Admin SDK 초기화
 const admin = require('./firebase.js'); // Firebase 초기화 파일 불러오기
