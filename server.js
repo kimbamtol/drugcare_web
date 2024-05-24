@@ -10,8 +10,7 @@ const admin = require('./firebase.js'); // Firebase 초기화 파일 불러오�
 // MongoDB 설정
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true // DeprecationWarning 해결
+    useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
