@@ -1,3 +1,4 @@
+// DRUGCARE_WEB/firebase.js
 const admin = require('firebase-admin');
 require('dotenv').config(); // 환경 변수를 로드합니다.
 
