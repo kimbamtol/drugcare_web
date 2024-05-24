@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-require('dotenv').config(); // 환경 변수를 로드
+require('dotenv').config(); // 환경 변수를 로드합니다.
 
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
