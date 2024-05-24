@@ -4,6 +4,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config(); // 환경 변수를 로드합니다.
 
+// Firebase Admin SDK 초기화
+const admin = require('./firebase.js'); // Firebase 초기화 파일 불러오기
+
 // MongoDB 설정
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
